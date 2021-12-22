@@ -69,7 +69,7 @@ def get_train_val_test_loader(dataset, collate_fn=default_collate,
         valid_size = kwargs['val_size']
     else:
         valid_size = int(val_ratio * total_size)
-    train_sampler = SubsetRandomSampler(indices[:train_size])
+    train_sampler = SubsetRandomSampler(indices[:train_size]) # 会根据后面给的列表从数据集中按照下标取元素
     val_sampler = SubsetRandomSampler(
         indices[-(valid_size + test_size):-test_size])
     if return_test:
